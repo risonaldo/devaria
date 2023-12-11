@@ -3,7 +3,7 @@ import type { RespostaPadraoMsg } from "../../types/RespostaPadraoMsg";
 import type { CadastroRequesicao } from "../../types/CadastroRequesicao";
 import { UsuarioModel } from "./../../models/UsuarioModel";
 import md5 from "md5";
-import { conectarMongoDB } from '../../middleware/conectarMongoDB';
+import { conectarMongoDB } from "../../middleware/conectarMongoDB";
 
 const endPointCadastro = async (
   req: NextApiRequest,
@@ -26,7 +26,6 @@ const endPointCadastro = async (
     if (!usuario.senha || usuario.senha.length < 4) {
       return res.status(400).json({ msg: "Senha Invalida" });
     }
-
     const usuarioSalvo = {
       nome: usuario.nome,
       email: usuario.email,
