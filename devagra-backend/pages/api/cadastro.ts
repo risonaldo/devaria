@@ -26,6 +26,16 @@ const endPointCadastro = async (
     if (!usuario.senha || usuario.senha.length < 4) {
       return res.status(400).json({ msg: "Senha Invalida" });
     }
+
+    const usuarioComMesmoEmail = await UsuarioModel.find({
+      email: usuario.email,
+    });
+    if (usuarioComMesmoEmail && usuarioComMesmoEmail.length > 0) {
+      return res
+        .status(400)
+        .json({ erro: " Já existe uma conta com o email informado" });
+    }
+
     const usuarioSalvo = {
       nome: usuario.nome,
       email: usuario.email,
