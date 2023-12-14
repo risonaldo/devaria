@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { RespostaPadraoMsg } from "../../types/RespostaPadraoMsg";
 import type { CadastroRequesicao } from "../../types/CadastroRequesicao";
-import { UsuarioModel } from "./../../models/UsuarioModel";
+import { UsuarioModel } from "../../models/UsuarioModel";
 import md5 from "md5";
 import { conectarMongoDB } from "../../middleware/conectarMongoDB";
 
